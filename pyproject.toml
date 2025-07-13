@@ -1,0 +1,18 @@
+[project]
+name = "groupbyScore"
+version = "0.0.2"
+authors = [
+  { name="Example Author", email="author@example.com" },
+]
+description = "You can group similar items (e.g., strings or dict fields) using the fuzzywuzzy package by comparing their similarity scores."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENCSE*"]
+
+[project.urls]
+Homepage = "https://github.com/postboxat18/groupbyScore.git"
