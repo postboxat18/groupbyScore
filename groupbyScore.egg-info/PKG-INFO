@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: groupbyScore
-Version: 0.0.2
+Version: 0.0.3
 Summary: You can group similar items (e.g., strings or dict fields) using the fuzzywuzzy package by comparing their similarity scores.
 Author-email: Example Author <author@example.com>
 License-Expression: MIT
