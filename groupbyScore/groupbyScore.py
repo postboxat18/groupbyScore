@@ -1,7 +1,7 @@
 from rapidfuzz import fuzz
 
 
-def groupbyScore(all_data, key):
+def groupbyScore(all_data, key,score=80):
     page_list = []
     used_list = []
     # FIRST LOOP
@@ -17,7 +17,7 @@ def groupbyScore(all_data, key):
                     sec_text = key(sec_data)[k]
                     # CHECK KEY TYPE STR
                     if str(type(first_text)) == "<class 'str'>" and str(type(sec_text)) == "<class 'str'>":
-                        isTrue.append(fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > 80)
+                        isTrue.append(fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score)
                     # CHECK KEY TYPE INT
                     elif str(type(first_text)) == "<class 'int'>" and str(type(sec_text)) == "<class 'int'>":
                         isTrue.append(first_text == sec_text)

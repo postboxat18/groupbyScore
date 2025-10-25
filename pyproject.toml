@@ -1,6 +1,6 @@
 [project]
 name = "groupbyScore"
-version = "0.0.3"
+version = "0.0.4"
 authors = [
   { name="Example Author", email="author@example.com" },
 ]
@@ -12,7 +12,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 license = "MIT"
-license-files = ["LICENCSE*"]
+license-files = ["LICENSE*"]
 
 [project.urls]
 Homepage = "https://github.com/postboxat18/groupbyScore.git"
