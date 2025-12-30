@@ -61,10 +61,15 @@ data = [
     {"Notes": "Fever", "page_num": 2},
     {"Notes": "feverish", "page_num": 2}
 ]
-
+# TUPLE
 for key, group in groupbyScore(data, key=lambda x: (x["Notes"], x["page_num"]),score=90):
     print("Group Key:", key)
     print("Group Items:", group)
+# STR
+for key, group in groupbyScore(data, key=lambda x: x["Notes"],score=90):
+    print("Group Key:", key)
+    print("Group Items:", group)
+
 ```
 
 ---
@@ -72,10 +77,24 @@ for key, group in groupbyScore(data, key=lambda x: (x["Notes"], x["page_num"]),s
 ## 📤 Example Output
 
 ```
+#### OUTPUT 1
 Group Key: ('Chest Pain', 1)
 Group Items: [{'Notes': 'Chest Pain', 'page_num': 1}, {'Notes': 'chest pain', 'page_num': 1}]
 
+Group Key: ('church', 1)
+Group Items: [{'Notes': 'church', 'page_num': 1}]
+
 Group Key: ('Fever', 2)
+Group Items: [{'Notes': 'Fever', 'page_num': 2}, {'Notes': 'feverish', 'page_num': 2}]
+
+#### OUTPUT 2
+Group Key: Chest Pain
+Group Items: [{'Notes': 'Chest Pain', 'page_num': 1}, {'Notes': 'chest pain', 'page_num': 1}]
+
+Group Key: church
+Group Items: [{'Notes': 'church', 'page_num': 1}]
+
+Group Key: Fever
 Group Items: [{'Notes': 'Fever', 'page_num': 2}, {'Notes': 'feverish', 'page_num': 2}]
 ```
 

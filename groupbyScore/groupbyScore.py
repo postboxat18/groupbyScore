@@ -1,7 +1,7 @@
 from rapidfuzz import fuzz
 
 
-def groupbyScore(all_data, key,score=80):
+def groupbyScore(all_data, key, score=80):
     page_list = []
     used_list = []
     # FIRST LOOP
@@ -12,9 +12,21 @@ def groupbyScore(all_data, key,score=80):
             for j, sec_data in enumerate(all_data):
                 isTrue = []
                 # LIST OF KEY LEN
-                for k in range(len(key(all_data[0]))):
-                    first_text = key(data)[k]
-                    sec_text = key(sec_data)[k]
+                # TUPLE DATA
+                if str(type(key(all_data[0]))) == "<class 'tuple'>":
+                    for k in range(len(key(all_data[0]))):
+                        first_text = key(data)[k]
+                        sec_text = key(sec_data)[k]
+                        # CHECK KEY TYPE STR
+                        if str(type(first_text)) == "<class 'str'>" and str(type(sec_text)) == "<class 'str'>":
+                            isTrue.append(fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score)
+                        # CHECK KEY TYPE INT
+                        elif str(type(first_text)) == "<class 'int'>" and str(type(sec_text)) == "<class 'int'>":
+                            isTrue.append(first_text == sec_text)
+                # STR DATA
+                else:
+                    first_text = key(data)
+                    sec_text = key(sec_data)
                     # CHECK KEY TYPE STR
                     if str(type(first_text)) == "<class 'str'>" and str(type(sec_text)) == "<class 'str'>":
                         isTrue.append(fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score)
