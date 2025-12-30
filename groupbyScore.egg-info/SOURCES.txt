@@ -1,0 +1,8 @@
+LICENSE
+README.md
+pyproject.toml
+groupbyScore/groupbyScore.py
+groupbyScore.egg-info/PKG-INFO
+groupbyScore.egg-info/SOURCES.txt
+groupbyScore.egg-info/dependency_links.txt
+groupbyScore.egg-info/top_level.txt
