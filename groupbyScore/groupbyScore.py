@@ -19,7 +19,9 @@ def groupbyScore(all_data, key, score=80):
                         sec_text = key(sec_data)[k]
                         # CHECK KEY TYPE STR
                         if str(type(first_text)) == "<class 'str'>" and str(type(sec_text)) == "<class 'str'>":
-                            isTrue.append(fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score)
+                            isDiff = fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score and abs(
+                                len(first_text) - len(sec_text)) < 5
+                            isTrue.append(isDiff)
                         # CHECK KEY TYPE INT
                         elif str(type(first_text)) == "<class 'int'>" and str(type(sec_text)) == "<class 'int'>":
                             isTrue.append(first_text == sec_text)
@@ -29,7 +31,9 @@ def groupbyScore(all_data, key, score=80):
                     sec_text = key(sec_data)
                     # CHECK KEY TYPE STR
                     if str(type(first_text)) == "<class 'str'>" and str(type(sec_text)) == "<class 'str'>":
-                        isTrue.append(fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score)
+                        isDiff = fuzz.partial_ratio(str(first_text).lower(), str(sec_text).lower()) > score and abs(
+                            len(first_text) - len(sec_text)) < 5
+                        isTrue.append(isDiff)
                     # CHECK KEY TYPE INT
                     elif str(type(first_text)) == "<class 'int'>" and str(type(sec_text)) == "<class 'int'>":
                         isTrue.append(first_text == sec_text)
